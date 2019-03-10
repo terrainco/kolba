@@ -11,7 +11,7 @@ echo -e 'Restart job specified'
 sleep 3
 
 
-rm -rf /tmp/kolba/
+sudso rm -rf /tmp/kolba/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
 echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
@@ -23,7 +23,7 @@ git clone https://github.com/terrainco/kolba.git /tmp/kolba
 cd /tmp/kolba
 chmod +x /tmp/kolba/kolba
 chmod 777 ./*.sh
-cp /tmp/kolba/kolba /usr/bin/
+sudo cp /tmp/kolba/kolba /usr/bin/
 sleep 3
 
 
